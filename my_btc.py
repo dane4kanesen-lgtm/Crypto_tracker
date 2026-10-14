@@ -15,7 +15,7 @@ def main():
     try:
         prices = get_btc_price()
     except Exception as e:
-        print(f"Es ist nicht gelungen, den Kurs yu erhalten.: {e}")
+        print(f"Es ist nicht gelungen, den Kurs zu erhalten.: {e}")
         return
 
     print("Bitcoin Kurs (BTC):")
@@ -46,7 +46,7 @@ def main():
         print(f"📉 ETH 24h-Rückgang: {eth_change:.2f}%")
 
     # Wie viel sind meine Bitcoins wert?
-    currency = input("IN welcher Währung berechnen? (usd/eur/rub/uah/cny): ").strip().lower()
+    currency = input("IN welcher Währung soll berechnet werden? (usd/eur/rub/uah/cny): ").strip().lower()
     if currency in ("usd", "eur", "rub", "uah", "cny"):
         try:
             amount = float(input("Wie viel BTC haben Sie? "))
@@ -61,7 +61,7 @@ def main():
     try:
         euro = float(input("Wie viel Euro haben Sie? "))
         btc_amount = euro / prices['bitcoin']['eur']
-        print(f"Für {euro} € Können Sie {btc_amount:.8f} BTC kaufen")
+        print(f"Für {euro} € können Sie {btc_amount:.8f} BTC kaufen")
         print(f"Das sind {btc_amount * 100_000_000:,.0f} Satoshis")
     except ValueError:
         print("Bitte geben Sie eine gültige Zahl ein.")
